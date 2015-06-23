@@ -1,6 +1,6 @@
 package com.zeerui;
 
-import static spark.Spark.*;
+import spark.Spark;
 /**
  * Hello world!
  *
@@ -9,6 +9,14 @@ public class App
 {
     public static void main( String[] args )
     {
-        get("/hello", (req, res) -> "Hello World");
+        Spark.get("/hello", (req, res) -> "Hello World");
+        
+        Spark.get("/spark", (req, res) ->{
+           return "Spark bark"; 
+        });
+        
+        Spark.get("/echo/:thing", (req, res)->{
+           return req.params(":thing");
+        });
     }
 }
