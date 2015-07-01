@@ -37,7 +37,7 @@ public class App
         
         MongoClient client = new MongoClient(new ServerAddress("localhost", 27017));
         DB testDB = client.getDB("test");
-        DBCollection collection = testDB.getCollection("names");
+        DBCollection collection = testDB.getCollection("users");
         
         
         Spark.get("/freemarker", (req, res) -> {
